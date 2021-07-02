@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "qiankun": "^2.4.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -15,7 +16,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "all:install": "npm-run-all --serial install:*",
+    "all:dev": "npm-run-all --parallel dev:*",
+    "install:react": "yarn",
+    "install:vue": "cd src/my-vue && yarn",
+    "dev:react": "yarn start",
+    "dev:vue": "cd src/my-vue && yarn serve"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +41,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@rescripts/cli": "0.0.16",
+    "npm-run-all": "^4.1.5"
   }
 }

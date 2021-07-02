@@ -1,12 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { registerMicroApps, start } from 'qiankun';
+
+registerMicroApps([
+  {
+    name: 'vue',
+    entry: '//localhost:8080',
+    container: '#main',
+    activeRule: '/vue',
+  },
+]);
+
+start();
+
+const letUsGo = (subapp) => {
+  window.history.pushState(null, subapp, subapp) 
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <div onClick={letUsGo('/vue')}>vue</div>
+    <div id="main"></div>
   </React.StrictMode>,
   document.getElementById('root')
 );
